@@ -2,6 +2,12 @@
 
 @{
     ViewData["Title"] = "Create";
+    List<Categoria> listaProdutos = (List<Categoria>)ViewData["ListaCategoria"];
+    List<Cliente> listaClientes = (List<Cliente>)ViewData["ListaClientes"];
+
+    Produto produto = (Produto)ViewData["CategoriaSelecionado"];
+    List<Produto> listaProdutosSelecionados = new List<Produto>();
+    listaProdutosSelecionados.Add(produto);
 
 }
 
@@ -26,10 +32,10 @@
                 <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
             <br />
-            <div class="row g-2">
+            <div class="row g-2 ">
                 <div class="col">
                     <div class="input-group mb-3">
-                        <input id="NomeCliente" name="NomeCliente" class="form-control p-2 py-3 rounded-end" value="@ViewData["ClienteSelecionado"]" readonly />
+                        <input id="NomeCliente" name="NomeCliente" class="form-control p-2 py-3 rounded-end" value="@ViewData["CategoriaSelecionado"]" readonly />
                         <input asp-for="ProdutoId" type="hidden" value="@ViewData["IdSelecionado"]" />
                         <span asp-validation-for="ProdutoId" class="text-danger"></span>
                         <button type="button" class="btn btn-outline-light p-2 py-3" data-bs-toggle="modal" data-bs-target="#janelaCliente">
